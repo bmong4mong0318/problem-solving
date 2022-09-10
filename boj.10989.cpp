@@ -13,7 +13,7 @@ int main()
 
 	int arr[10001] = {0};
 
-	for (int i = 0; i < n ; i++)
+	for (int i = 0; i < n; i++)
 	{
 		int a;
 		cin >> a;
