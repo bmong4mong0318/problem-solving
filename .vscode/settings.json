@@ -1,3 +1,9 @@
 {
-	"ros.distro": "melodic"
+  "ros.distro": "melodic",
+  "files.associations": {
+    "iostream": "cpp",
+    "deque": "cpp",
+    "string": "cpp",
+    "vector": "cpp"
+  }
 }
