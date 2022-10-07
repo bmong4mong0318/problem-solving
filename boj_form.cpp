@@ -1,5 +1,11 @@
-#include <bits/stdc++.h>
-
+#include <iostream>
+#include <algorithm>
+#include <utility>
+#include <vector>
+#include <stack>
+#include <queue>
+#include <list>
+#include <map>
 using namespace std;
 
 int main()
