@@ -1,11 +1,12 @@
 {
   "ros.distro": "melodic",
   "files.associations": {
-	"iostream": "cpp",
-	"deque": "cpp",
-	"string": "cpp",
-	"vector": "cpp",
-	"algorithm": "cpp",
-	"__config": "cpp"
-}
+    "iostream": "cpp",
+    "deque": "cpp",
+    "string": "cpp",
+    "vector": "cpp",
+    "algorithm": "cpp",
+    "__config": "cpp",
+    "ostream": "cpp"
+  }
 }
