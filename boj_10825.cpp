@@ -11,9 +11,7 @@ using namespace std;
 class Student{
 public: 
 	string name;
-	int k;
-	int y;
-	int	s;
+	int k, y, s;
 };
 
 int compare(Student a, Student b){
