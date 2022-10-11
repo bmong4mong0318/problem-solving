@@ -30,14 +30,14 @@ int main()
 			cin >> tmp2;
 			b.push_back(tmp2);
 		}
-		int ans = 0;
 		sort(a.begin(),a.end());
 		sort(b.begin(),b.end());
+		int ans = 0;
 		for (int n = 0; n < N; n++){
 			for (int m = 0; m < M; m++){
-				ans++;
-				if (a[n] > a[M])
-					break ;	
+				if (a[n] > b[m])
+					ans++;
+				else break;
 			}
 		}
 		cout << ans << '\n';
