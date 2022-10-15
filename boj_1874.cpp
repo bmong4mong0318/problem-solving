@@ -6,9 +6,9 @@ using namespace std;
 
 int main()
 {
-	// ios_base::sync_with_stdio(false); 
-	// cin.tie(NULL);
-	// cout.tie(NULL);
+	ios_base::sync_with_stdio(false); 
+	cin.tie(NULL);
+	cout.tie(NULL);
 
 	int n;
 	cin >> n;
@@ -16,7 +16,8 @@ int main()
 	stack<int> s;
 	vector<int> v;
 	vector<int> a;
- 
+	vector<char> ans;
+
 	for (int i = 0; i < n; i++){
 		int tmp;
 		cin >> tmp;
@@ -30,22 +31,22 @@ int main()
 	int j = 0;
 	int cnt = 0;
 	while (i < n){
-
-		while (cnt <= v[i]){
+		while (cnt < v[i]){
 			s.push(a[j++]);
-			cout << '+' << '\n';
+			ans.push_back('+');
 			cnt++;
 		}
-		if (cnt != n && j == n){
-			cout << "NO";
-			break ;
-		}
-		while (s.top() == v[i]){
+		if (s.top() == v[i]){
 			s.pop();
-			cout << '-' << '\n';
+			ans.push_back('-');
 			i++;
-			cnt++;
+		}
+		else {
+			cout << "NO";
+			return (0);
 		}
 	}
+	for (int i = 0; i < ans.size(); i++)
+		cout << ans[i] << '\n';
 	return (0);
 }
