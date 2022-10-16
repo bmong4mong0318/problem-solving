@@ -26,20 +26,24 @@ int INF = 1e9 + 7; // ⭐️ 의외로 자주 쓰는 수. 자주 쓰고 말고�
 
 int solution(int num, vector<int> v)
 {
-	auto	start = v.begin();
-	auto 	end = v.end();
-    vector<int>::iterator mid;
+	int	start = 0;
+	int end = v.size()-1;
+    int mid;
+	vector<int>::iterator cur = v.begin();
 	int sum = 0;
 
     while(start <= end){
         mid = (start + end) / 2;
-        if(*mid == num){
+		cur += mid;
+		cout << "check::";
+        if(v[mid] == num){
 			sum++;	
-			v.erase(mid);
+			v.erase(cur);
+			v.shrink_to_fit();
 		}
-        else if(*mid < num)
+        else if(v[mid] < num)
             start = mid + 1;
-        else if(*mid > num)
+        else if(v[mid] > num)
             end = mid - 1;
     }
     return (sum);
