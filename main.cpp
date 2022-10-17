@@ -11,7 +11,7 @@
 
 using namespace std;
 
-#define ffor(i, x) for (int (i) = 0; (i) < (x) ; ++(i)) // ⭐️ 0부터 x-1까지 for-loop
+#define ffor(i, x) for (int (i) = 0; (i) < (x) ; (i)++) // ⭐️ 0부터 x까지 for-loop
 #define fffor(i, x) for (int (i) = 1; (i) <= (x) ; ++(i)) // ⭐️ 1부터 x까지 for-loop
 #define cc(x) cin >> (x); // ⭐️ stdin 인풋 하나 받기
 #define ccc(x) int (x); cin >> (x); // ⭐️ int 변수 만들고 그걸로 stdin 인풋 하나 받기
