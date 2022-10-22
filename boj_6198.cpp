@@ -24,57 +24,71 @@ int dx[] = {1, 0, -1, 0}; // 동 남 서 북 // ⭐️ DFS, BFS 문제 풀 때 �
 int dy[] = {0, 1, 0, -1}; // ⭐️ 이렇게 안하고 2x4 배열로 만들어 쓰는 사람들도 있는 것 같다
 int INF = 1e9 + 7;		  // ⭐️ 의외로 자주 쓰는 수. 자주 쓰고 말고는 문제를 풀면서 생각해보면 될 문제
 
-int main()
+int N;
+stack <int> s;
+int arr[80000];
+
+int main() 
 {
-	// ios_base::sync_with_stdio(false);
-	// cin.tie(NULL);
-	// cout.tie(NULL);
-	ccc(N)
-	stack<ii> s;
-	stack<ii> t;
-	vector<ii> v;
-	int sum = 0;
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
+	cin >> N;
 	ffor(i, N)
-	{
-		ii x;
-		cin >> x.first;
-		x.second = i + 1;
-		v.push_back(x);
+		cin >> arr[i];
+	long long ans = 0;
+	ffor (i, N){
+		while (!s.empty() && s.top() <= arr[i])
+			s.pop();
+		s.push(arr[i]);
+		ans += s.size() - 1;
 	}
-	ffor(i, N)
-	{
-		if (s.empty())
-			s.push(v[N - i - 1]);
-		else if (v[N - i - 1].first > s.top().first)
-		{
-			while (v[N - i - 1].first > s.top().first)
-			{
-				t.push(s.top());
-				s.pop();
-				sum++;
-				if (s.empty())
-					break;
-			}
-			int tmp = v[N - i - 1].second - t.top().second;
-			if (!s.empty())
-			{
-				while (v[N - i - 1].first < s.top().first &&
-					   t.top().second < s.top().second)
-				{
-					if (tmp != 1)
-					{
-						t.pop();
-						sum++;
-					}
-					if (t.empty())
-						break;
-				}
-			}
-			s.push(v[N - i - 1]);
-		}
-		else if (v[N - i - 1].first < s.top().first)
-			s.push(v[N - i - 1]);
-	}
-	cout << sum;
-	return (0);
+	cout << ans;
 }
+
+// int main()
+// {
+// 	ios_base::sync_with_stdio(false);
+// 	cin.tie(NULL);
+// 	cout.tie(NULL);
+// 	ccc(N)
+// 	stack<ii> s;
+// 	stack<ii> t;
+// 	vector<ii> v;
+// 	long long sum = 0;
+// 	ffor(i, N)
+// 	{
+// 		ii x;
+// 		cin >> x.first;
+// 		x.second = i + 1;
+// 		v.push_back(x);
+// 	}
+// 	ffor(i, N)
+// 	{
+// 		if (s.empty())
+// 			s.push(v[N - i - 1]);
+// 		else if (v[N - i - 1].first > s.top().first)
+// 		{
+// 			int cnt = 0;
+// 			while (v[N - i - 1].first > s.top().first)
+// 			{
+// 				t.push(s.top());
+// 				s.pop();
+// 				sum++;
+// 				cnt++;
+// 				if (s.empty())
+// 					break;
+// 			}
+// 			while (cnt--){
+// 				s.push(t.top());
+// 				t.pop();
+// 			}
+// 			s.push(v[N - i - 1]);
+// 		}
+// 		else if (v[N - i - 1].first < s.top().first)
+// 			s.push(v[N - i - 1]);
+// 	}
+// 	cout << sum;
+// 	return (0);
+// }
