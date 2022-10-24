@@ -35,27 +35,19 @@ int main()
 	cout.tie(NULL);
 
 	ccc(N)
-	ffor(i, N)
+	for (int i = 0; i < N; i++)
 		cc(arr[i])
-	ffor(i, N)
+	for (int i = N - 1; i >= 0; i--)
 	{
-		int cnt = 0;
-		while (!s.empty() && s.top() < arr[i])
-		{
+		while (!s.empty() && s.top() <= arr[i])
 			s.pop();
-			ans.push_back(arr[i]);
-			cnt++;
-		}
-		if (!s.empty() && (cnt != 0))
-			ans.insert(ans.begin() + ans.size() - cnt, EOF);
-		if (i == N - 1){
-			if (ans.empty())
-				ans.push_back(EOF);
-			fill_n(ans.begin() + ans.size(), N - ans.size(), EOF);
-		}
+		if (!s.empty())
+			ans.push_back(s.top());
+		else if (s.empty() || i == N - 1)
+			ans.push_back(EOF);
 		s.push(arr[i]);
 	}
-	ffor(i, N)
+	for (int i = N - 1; i >= 0; i--)
 		cob(ans[i]);
 	return (0);
 }
