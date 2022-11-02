@@ -15,8 +15,7 @@ public class boj_2577{
                 number /= 10;
             }
 
-            for(int i = 0; i < counts.length; i++){
+            for(int i = 0; i < counts.length; i++)
                 System.out.println(counts[i]);
-            }
     }
 }
