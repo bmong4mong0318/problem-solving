@@ -33,9 +33,9 @@ bool flag = false;
 
 int main()
 {
-	// ios_base::sync_with_stdio(false); 
-	// cin.tie(NULL);
-	// cout.tie(NULL);
+	ios_base::sync_with_stdio(false); 
+	cin.tie(NULL);
+	cout.tie(NULL);
 	cin >> m >> n;
 	ffor(i, n){
 		ffor(j, m){
