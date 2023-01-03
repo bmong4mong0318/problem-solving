@@ -24,10 +24,43 @@ int dx[] = {1, 0, -1, 0}; // 동 남 서 북 // ⭐️ DFS, BFS 문제 풀 때 �
 int dy[] = {0, 1, 0, -1}; // ⭐️ 이렇게 안하고 2x4 배열로 만들어 쓰는 사람들도 있는 것 같다
 int INF = 1e9 + 7; // ⭐️ 의외로 자주 쓰는 수. 자주 쓰고 말고는 문제를 풀면서 생각해보면 될 문제
 
+queue<int> q;
+int location[100001];
+int visited[100001];
+
 int main()
 {
 	ios_base::sync_with_stdio(false); 
 	cin.tie(NULL);
 	cout.tie(NULL);
+
+	int N, K;
+	cin >> N >> K;
+	q.push(N);
+	visited[N] = 0;
+
+	fill(visited, visited + 100001, -1);
+
+	while (!q.empty()){
+		int x = q.front();
+		if (x == K)
+			break;
+		q.pop();
+
+		for (int i = 0; i < 3; i++){
+			int nx = x + dx[i];
+			if (nx == x){
+				nx = 2 * x;
+			}
+		if (nx < 0 || nx > 100000)
+			continue;
+		if (visited[nx] >= 0){
+			continue;
+		}
+		q.push(nx);
+		visited[nx] = visited[x] + 1;
+		}	
+	}
+	cout << visited[K] + 1;
 	return (0);
 }
