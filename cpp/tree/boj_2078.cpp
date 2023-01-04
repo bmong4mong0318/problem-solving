@@ -8,7 +8,6 @@
 #include <deque>
 #include <list>
 #include <map>
-#include <cstring> //memset
 
 using namespace std;
 
@@ -27,8 +26,32 @@ int INF = 1e9 + 7; // ⭐️ 의외로 자주 쓰는 수. 자주 쓰고 말고�
 
 int main()
 {
-	ios_base::sync_with_stdio(false); 
-	cin.tie(NULL);
-	cout.tie(NULL);
+	// ios_base::sync_with_stdio(false); 
+	// cin.tie(NULL);
+	// cout.tie(NULL);
+
+	int A, B;
+	cin >> A >> B;
+	int a = 1, b = 1, tmp = 0;
+	int L = 0, R = 0;
+	while (1){
+		if (a == A && b == B)
+			break ;
+		tmp = a;
+		a = a + b;
+		if (a <= A && b <= B)
+			++L;
+		else
+			a = tmp;
+
+		tmp = b;
+		b = a + b;
+		if (a <= A && b <= B)
+			++R;
+		else
+			b = tmp;
+	}
+	cout << L << " " << R;
+
 	return (0);
 }
