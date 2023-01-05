@@ -1,6 +1,0 @@
-{
-	"ros.distro": "melodic",
-	"files.associations": {
-		"iostream": "cpp"
-	}
-}
