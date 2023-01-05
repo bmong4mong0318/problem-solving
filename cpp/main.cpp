@@ -8,11 +8,7 @@
 #include <deque>
 #include <list>
 #include <map>
-<<<<<<< HEAD
 #include <cstring> //memeset
-=======
-#include <cstring> //memset
->>>>>>> d2334c7c1dff18ea90a4e2ba33ef9a5648049030
 
 using namespace std;
 
