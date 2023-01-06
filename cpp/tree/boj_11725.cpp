@@ -32,8 +32,11 @@ int p[100001];
 
 void dfs(int cur){
 	for (int next: adj[cur]){
+		// cur의 인접 정점들이 cur의 부모가 되지 않도록 방지
 		if (p[cur] == next) continue;
+		// cur가 cur의 인접 정점들의 부모가 됨
 		p[next] = cur;
+		// 인접 정점들이 다시 cur가 되어 자식들 찾기
 		dfs(next);
 	}
 }
@@ -46,11 +49,13 @@ int main()
 
 	cin >> n;
 	for(int i = 0; i < n - 1; i++){
+		// 인접 행렬 생성 
 		int u, v;
 		cin >> u >> v;
 		adj[u].push_back(v);
 		adj[v].push_back(u);
 	}
+	// 부모 값 갱신
 	dfs(1);
 	for(int i = 2; i <= n; i++){
 		cout << p[i] << '\n';
