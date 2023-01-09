@@ -8,6 +8,7 @@
 #include <deque>
 #include <list>
 #include <map>
+#include <set>
 #include <cstring> //memeset
 
 using namespace std;
@@ -25,50 +26,74 @@ int dx[] = {1, 0, -1, 0}; // 동 남 서 북 // ⭐️ DFS, BFS 문제 풀 때 �
 int dy[] = {0, 1, 0, -1}; // ⭐️ 이렇게 안하고 2x4 배열로 만들어 쓰는 사람들도 있는 것 같다
 int INF = 1e9 + 7; // ⭐️ 의외로 자주 쓰는 수. 자주 쓰고 말고는 문제를 풀면서 생각해보면 될 문제
 
-struct Node {
-	int v;
-	int cost;
-};
-int N, M, dist[1001];
-vector<Node> adj[1001];
+int N, M;
+vector<ii> bam;
+vector<ii> sa;
 queue<int> q;
+int dis[101]; 
 
-int BFS(int start, int end){
-	q.push(start);
-	dist[start] = 0;
-	while (!q.empty()){
-		int x = q.front();
-		q.pop();
-		
-		for (auto next : adj[x]){
-			if (dist[next.v] >= 0) continue;
-			dist[next.v] = dist[x] + next.cost;
-			q.push(next.v);
-		}
+int isBam(int x){
+	vector<ii>::iterator cur;
+
+	for (cur = bam.begin(); cur != bam.end(); cur++){
+		if (x == (*cur).first)
+			return (*cur).second;
 	}
-	return dist[end];
+	return -1;
+}
+
+int isSa(int x){
+	vector<ii>::iterator cur;
+
+	for (cur = sa.begin(); cur != sa.end(); cur++){
+		if (x == (*cur).first)
+			return (*cur).second;
+	}
+	return -1;
 }
 
 int main()
 {
-	ios_base::sync_with_stdio(false); 
-	cin.tie(NULL);
-	cout.tie(NULL);
+	// ios_base::sync_with_stdio(false); 
+	// cin.tie(NULL);
+	// cout.tie(NULL);
 
-	int N, M;
 	cin >> N >> M;
-	for (int i = 0, u, v, cost; i < N - 1; i++){
-		cin >> u >> v >> cost;
-		// 인접 리스트로 트리 구현
-		adj[u].push_back({v, cost});
-		adj[v].push_back({u, cost});
+	for (int i = 0,x ,y; i < N; i++){
+		cin >> x >> y;
+		bam.push_back({x, y}); 
 	}
 
-	for (int i = 0; i < M; i++){
-		int start, end;
-		cin >> start >> end;
-		memset(dist, -1, sizeof(dist));
-		cout << BFS(start, end) <<'\n';
+	for (int i = 0, x, y; i < M; i++){
+		cin >> x >> y;
+		sa.push_back({x, y});
 	}
+
+	memset(dis, -1, sizeof(dis));
+	q.push(1);
+	dis[1] = 0;;
+
+	while (!q.empty()){
+		int x = q.front();
+		q.pop();
+
+		for (int i = 1; i <= 6; i++){
+			int nx = x + i;
+
+			if (nx > 100)
+				continue;
+
+			if (isBam(nx) != -1)
+				nx = isBam(nx);
+			else if (isSa(nx) != -1)
+				nx = isSa(nx);
+
+			if (dis[nx] == -1){
+				q.push(nx);
+				dis[nx] = dis[x] + 1;
+			}
+		}
+	}
+	cout << dis[100];
 	return (0);
 }
