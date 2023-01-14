@@ -22,6 +22,11 @@ public class boj_2206 {
         int N = Integer.parseInt(stringTokenizer.nextToken());
         int M = Integer.parseInt(stringTokenizer.nextToken());
 
+        if(N-1 == 0 && M-1 == 0){
+            System.out.print(1);
+            System.exit(0);
+        }
+
         map = new char[N][M];
         isVisited = new int[N][M][2];
         dist = new int[N][M];
@@ -36,48 +41,37 @@ public class boj_2206 {
         }
 
         Queue<int[]> q = new LinkedList<>();
-        q.offer(new int[]{0, 0});
-        isVisited[0][0][0]++;
+        q.offer(new int[]{0, 0, 0});
 
         while (!q.isEmpty()) {
             int cur[] = q.poll();
             int x = cur[0];
             int y = cur[1];
 
-            if (x == N - 1 && y == M - 1) {
-                System.out.println(dist[x][y]);
-                return;
-            }
-
             for (int i = 0; i < 4; i++) {
                 int nx = x + dx[i];
                 int ny = y + dy[i];
-
 
                 if (nx < 0 || nx >= N || ny < 0 || ny >= M) {
                     continue;
                 }
 
-                if (map[nx][ny] == '1'){
-                    if (cur[2] == 0 && isVisited[nx][ny][1] == 0){
+                if (map[nx][ny] == '1') {
+                    if (cur[2] == 0 && isVisited[nx][ny][1] == 0) {
                         isVisited[nx][ny][cur[2]] = 1;
                         dist[nx][ny] = dist[x][y] + 1;
                         q.offer(new int[]{nx, ny, 1});
                     }
+                } else {
+                    if (isVisited[nx][ny][cur[2]] == 0) {
+                        isVisited[nx][ny][cur[2]] = 1;
+                        dist[nx][ny] = dist[x][y] + 1;
+                        q.offer(new int[]{nx, ny, cur[2]});
+                    }
                 }
-                else {
-
-                }
-                if (map[nx] .out.println("nx = " + nx);
-//                    System.out.println("ny = " + ny);
-//                    System.out.println("@@@");
-                    q.add(new int[]{nx, ny});
-                    isVisited[nx][ny][0] = isVisited[x][y][0] + 1;
-                } else if (map[nx][ny] == '1' && !flag2 && isVisited[nx][ny][0] == -1) {
-//                    System.out.println("@@@@@");
-                    q.add(new int[]{nx, ny});
-                    isVisited[nx][ny][0] = isVisited[x][y][0] + 1;
-                    flag = true;
+                if (nx == N - 1 && ny == M - 1) {
+                    System.out.println(dist[nx][ny] + 1);
+                    System.exit(0);
                 }
             }
         }
