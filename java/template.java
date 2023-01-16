@@ -23,7 +23,21 @@ public class template {
     static int[][] map; // 2차원 지도
 
     public static void main(String[] args) throws IOException {
+        // 특정 범위 내의 소수 구하기
+        boolean[] isPrime = new boolean[1000001];
+        // 1은 소수가 아니다.
+        isPrime[1] = true;
+        for (int i = 2; i <= 1000000; i++)
+            // 소수이이면
+            if (!isPrime[i])
+                // 그 배수들은 모두 제외
+                for (int j = i * 2; j<=1000000; j += i)
+                    isPrime[j] = true;
+
+        // 입력
         input();
+
+        // bfs form
         bfs();
     }
 
