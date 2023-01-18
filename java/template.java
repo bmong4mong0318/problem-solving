@@ -22,6 +22,9 @@ public class template {
     static int[] dy = {0, 1, 0 ,-1};
     static int[][] map; // 2차원 지도
 
+    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static StringTokenizer st;
+
     public static void main(String[] args) throws IOException {
         // 특정 범위 내의 소수 구하기
         boolean[] isPrime = new boolean[1000001];
@@ -42,17 +45,17 @@ public class template {
     }
 
     private static void input() throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer stringTokenizer = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(stringTokenizer.nextToken());
-        int M = Integer.parseInt(stringTokenizer.nextToken());
+        st = new StringTokenizer(br.readLine());
+
+        int N = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
 
         map = new int[N][M];
         for (int i = 0; i < N; i++) {
             String tmp;
-            stringTokenizer = new StringTokenizer(br.readLine());
-            tmp = stringTokenizer.nextToken();
+            st = new StringTokenizer(br.readLine());
+            tmp = st.nextToken();
             for (int j = 0; j < M; j++) {
                 map[i][j] = tmp.charAt(j);
             }
