@@ -20,7 +20,6 @@ public class boj_16134 {
 //        nCr = (n-r)! / r!
 //            = n! (r!(n-r)!)^(p-2) % p;
 
-
         long up = 1;
 
         for (int i = 1; i <= R; i++){
