@@ -3,7 +3,6 @@ package math;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.math.BigInteger;
 import java.util.StringTokenizer;
 
 public class boj_16134 {
@@ -30,6 +29,7 @@ public class boj_16134 {
 
             if (tmp - tmp2 == 0)
                 up /= down;
+
         }
 
         System.out.println(up % 1_000_000_007);
