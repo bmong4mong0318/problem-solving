@@ -26,9 +26,10 @@ public class template {
     static StringTokenizer st;
 
     public static void main(String[] args) throws IOException {
+
         // 특정 범위 내의 소수 구하기
-        boolean[] isPrime = new boolean[1000001];
-        // 1은 소수가 아니다.
+        boolean[] isPrime = new boolean[1000001]; // int 범위 벗어나면 못함
+        // 1은 소수가 아니다
         isPrime[1] = true;
         for (int i = 2; i <= 1000000; i++)
             // 소수이이면
