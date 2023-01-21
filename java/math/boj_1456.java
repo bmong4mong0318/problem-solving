@@ -33,7 +33,7 @@ public class boj_1456 {
         for (int i = A; i <= B; ++i){
             // 이 사이의 모둔 소수들을 찾고
             // 그 소수들을 순회하면서 B 이하의 값들에서 소수의 N 제곱 있는지 확인
-            long cur =
+//            long cur =
         }
 
         System.out.println(cnt);
