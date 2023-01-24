@@ -1,3 +1,5 @@
+package simulation;
+
 import java.util.Scanner;
 
 public class boj_2577{
