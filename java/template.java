@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -29,21 +30,9 @@ public class template {
 
     public static void main(String[] args) throws IOException {
 
-        // 특정 범위 내의 소수 구하기
-        boolean[] isNotPrime = new boolean[1000001]; // int 범위 벗어나면 못함
-        // 1은 소수가 아니다
-        isNotPrime[1] = true;
-        for (int i = 2; i <= 1000000; i++)
-        {
-            // 소수이이면
-            if (!isNotPrime[i])
-            // 그 배수들은 모두 제외
-            {
-                for (int j = i * 2; j <= 1000000; j += i) {
-                    isNotPrime[j] = true;
-                }
-            }
-        }
+        // 특정 범위 내 소수 구하기
+        int LIMIT = 0;
+        ArrayList<Integer> primeNumbers = getPrimeNumbers(LIMIT);
 
         // 입력
         input();
@@ -83,5 +72,28 @@ public class template {
                 int ny = y + dy[i];
             }
         }
+    }
+
+    // 특정 범위 내의 소수 구하기 - 에라토스테네스의 체 활용
+    private static ArrayList<Integer> getPrimeNumbers(int LIMIT) {
+        int sqrtN = (int)Math.sqrt(LIMIT);
+        ArrayList<Integer> prime = new ArrayList<>();
+        boolean[] isNotPrime = new boolean[sqrtN + 1]; // int 범위 벗어나면 못함
+        // 1은 소수가 아니다
+        isNotPrime[1] = true;
+
+        for (int i = 2; i <= sqrtN; i++) {
+            // 소수이면
+            if (!isNotPrime[i])
+            {
+                //소수만 모으고
+                prime.add(i);
+                for (int j = i * 2; j <= sqrtN; j += i) {
+                    // 그 배수들은 모두 제외
+                    isNotPrime[j] = true;
+                }
+            }
+        }
+        return prime;
     }
 }

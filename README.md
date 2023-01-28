@@ -18,3 +18,11 @@
         System.out.println();
     }
 ```
+
+```java
+// 입력값의 범위를 잘 확인하자.
+//int	-2147483648 ~ 2147483647 (10^9)
+//long	-9223372036854775808 ~ 9223372036854775807 (10^18)
+long A = Long.parseLong(st.nextToken());
+int B = Integer.parseInteger(st.nextToken());
+```
