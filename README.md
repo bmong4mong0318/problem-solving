@@ -6,3 +6,15 @@
   - 테이블의 의미를 정의하고, 점화식과 초기값을 찾는다.
 - 모르겠으면 우선 정렬부터 시켜 놓고 생각해보자.
 - 그리디가 아닌 것을 그리디로 착각하는 것을 주의하자.
+
+
+```java
+    private static void printPrime(Integer num) {
+        for (int i = 2; i <= 5_000_000; i++) {
+            num = divideByPrime(num, i);
+            if (num == 1) break;
+//        if (divideByPrime(num, i) == 1) break; -> 이런식으로 쓰는것은 num값의 갱신을 막는다.
+        }
+        System.out.println();
+    }
+```
