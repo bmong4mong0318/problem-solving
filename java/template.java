@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -12,7 +13,9 @@ import java.util.StringTokenizer;
 public class template {
 
     public static class Pair { // pair
+
         int x, y;
+
         public Pair(int x, int y) {
             this.x = x;
             this.y = y;
@@ -81,19 +84,22 @@ public class template {
     // 특정 범위 내의 소수 구하기 - 에라토스테네스의 체 활용
     private static ArrayList<Integer> getPrimeNumbers(int LIMIT) {
         ArrayList<Integer> prime = new ArrayList<>();
-        boolean[] isNotPrime = new boolean[LIMIT + 1]; // int 범위 벗어나면 못함
-        // 1은 소수가 아니다
-        isNotPrime[1] = true;
+        boolean[] isPrime = new boolean[LIMIT + 1]; // int 범위 벗어나면 못함
+
+        //처음에 모두 소수라고 가정
+        Arrays.fill(isPrime, true);
+        //2 부터 sqrt(n) 까지
         for (int i = 2; i * i <= LIMIT; i++) {
-            // 소수이면
-            if (!isNotPrime[i])
-            {
-                //소수만 모으고
-                prime.add(i);
-                for (int j = i * i; j <= LIMIT; j += i) {
-                    // 그 배수들은 모두 제외
-                    isNotPrime[j] = true;
-                }
+            // 이미 지워진 수는 무시
+            if (!isPrime[i]) {
+                continue;
+            }
+
+            //소수만 모으고
+            prime.add(i);
+            for (int j = i * i; j <= LIMIT; j += i) {
+                // 그 배수들은 모두 제외
+                isPrime[j] = false;
             }
         }
         return prime;
