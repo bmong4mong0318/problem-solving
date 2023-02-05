@@ -48,6 +48,9 @@ public class template {
 
         // bfs form
         bfs();
+
+        // 최대 공약수 구하기
+//        gcd(a, b);
     }
 
     private static void input() throws IOException {
@@ -105,5 +108,12 @@ public class template {
             }
         }
         return prime;
+    }
+
+    // 두 수의 최대공약수 구하기
+    public static long gcd(long a, long b) {
+        if (b == 0)
+            return a;
+        return gcd(b, a % b);
     }
 }
