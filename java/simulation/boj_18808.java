@@ -5,9 +5,8 @@ import java.util.*;
 
 public class boj_18808 {
 
-
-    static int[] dx = {1, 0, -1, 0};
-    static int[] dy = {0, 1, 0, -1};
+    static int[] dx = {1, 0, -1, 0, 0};
+    static int[] dy = {0, 1, 0, -1, 0};
     static ArrayList<int[][]> stickers = new ArrayList<>();
     static int N, M;
 
@@ -38,9 +37,6 @@ public class boj_18808 {
 
         // 스티커 돌면서
         for (int[][] sticker : stickers) {
-            System.out.println("!!!");
-            print(sticker);
-            System.out.println("!!!");
             isValidSticker(noteBook, sticker);
         }
 
@@ -62,24 +58,12 @@ public class boj_18808 {
         // 4번 돌리기 실패시 다음 스티커
         while (cnt >= 0) {
             // 노트북 돌면서
-
             for (int i = 0; i < N; i++) {
                 for (int j = 0; j < M; j++) {
                     // 스티커가 붙일 수 있다면
                     if (bfs(tmp, noteBook, i, j)) {
-                        System.out.println("@@@");
-                        print(tmp);
                         // 그 위치부터 그 스티커를 노트북에 그리기
                         putSticker(tmp, noteBook, i, j);
-
-//                        // 찍히고 나서 확인
-//                        System.out.println("put!put!put!");
-//                        for (int a = 0; a < N; a++) {
-//                            for (int b = 0; b < M; b++) {
-//                                System.out.print(noteBook[a][b] + " ");
-//                            }
-//                            System.out.println();
-//                        }
                         return ;
                     }
                 }
@@ -129,7 +113,6 @@ public class boj_18808 {
 
     private static boolean bfs(int[][] sticker, int[][] noteBook, int ni, int nj) {
         Queue<int[]> q = new LinkedList<>();
-        q.offer(new int[]{0, 0});
 
         int row = sticker.length;
         int col = sticker[0].length;
@@ -137,8 +120,11 @@ public class boj_18808 {
         int cnt = 0;
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < col; j++) {
-                if (sticker[i][j] == 1)
+                if (sticker[i][j] == 1){
                     cnt++;
+                    // 시작점을 조정해줘야 한다.
+                    q.offer(new int[]{i, j});
+                }
             }
         }
 
@@ -149,7 +135,7 @@ public class boj_18808 {
             int x = cur[0];
             int y = cur[1];
 
-            for (int i = 0; i < 4; i++) {
+            for (int i = 0; i < 5; i++) {
                 int nx = x + dx[i];
                 int ny = y + dy[i];
 
@@ -161,15 +147,17 @@ public class boj_18808 {
                     continue;
                 }
 
-                // 붙힐 수 있으면
-                if (sticker[nx][ny] == 1 && !isVisited[nx][ny]
+                // 스티커가 있으면
+                if (sticker[nx][ny] == 1){
                     // 노트북에 자리가 있으면
-                    && noteBook[ni + nx][nj + ny] == 0) {
-                    q.offer(new int[]{nx, ny});
-                    isVisited[nx][ny] = true;
-                    cnt--;
-                } else if (sticker[nx][ny] == 1 && noteBook[ni + nx][nj + ny] == 1) {
-                    return false;
+                    if (!isVisited[nx][ny] && noteBook[ni + nx][nj + ny] == 0) {
+                        q.offer(new int[]{nx, ny});
+                        isVisited[nx][ny] = true;
+                        cnt--;
+                    } else if (noteBook[ni + nx][nj + ny] == 1) {
+                        return false;
+                    }
+
                 }
             }
         }
