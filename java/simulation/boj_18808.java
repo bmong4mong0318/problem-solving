@@ -99,18 +99,6 @@ public class boj_18808 {
         }
     }
 
-    private static void print(int[][] sticker) {
-        int row = sticker.length;
-        int col = sticker[0].length;
-
-        for (int i = 0; i < row; i++) {
-            for (int j = 0; j < col; j++) {
-                System.out.print(sticker[i][j] + " ");
-            }
-            System.out.println();
-        }
-    }
-
     private static boolean bfs(int[][] sticker, int[][] noteBook, int ni, int nj) {
         Queue<int[]> q = new LinkedList<>();
 
