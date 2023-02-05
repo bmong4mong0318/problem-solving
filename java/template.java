@@ -33,8 +33,11 @@ public class template {
     // 빠른 입력
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     // 빠른 출력
-    // 버퍼를 잡아 놓았기 때문에 bw.flush(); bw.close(); 를 반드시 호출 해주어야 한다.
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    // 버퍼를 잡아 놓았기 때문에 bw.flush(); 를 반드시 호출 해주어야 한다.
+    // bw.write(String.valueOf(result)); // 종료시마다 결과 값 버퍼에 저장
+    // bw.flush(); // 출력
+
     static StringTokenizer st;
 
     public static void main(String[] args) throws IOException {
@@ -48,9 +51,6 @@ public class template {
 
         // bfs form
         bfs();
-
-        // 최대 공약수 구하기
-//        gcd(a, b);
     }
 
     private static void input() throws IOException {
@@ -110,10 +110,25 @@ public class template {
         return prime;
     }
 
-    // 두 수의 최대공약수 구하기
-    public static long gcd(long a, long b) {
-        if (b == 0)
-            return a;
-        return gcd(b, a % b);
+    /**
+     * 유클리드 호제법 메서드
+     * @param bigNumber : 두개의 수 중 큰 수
+     * @param smallNumber : 두개의 수 중 작은 수
+     * @return
+     * 큰 수를 작은 수로 나눈 나머지가 0이면 작은 수를 리턴
+     * 0이 아니면 재귀형태로 다시 메서드 호출하며 파라미터로 작은 수, 나머지를 넘거줌
+     */
+    static int euclidean(int bigNumber, int smallNumber) {
+        // 큰 수를 작은 수로 나눈 나머지를 구함
+        int R = bigNumber % smallNumber;
+        // 나머지가 0인 경우 작은 수 리턴
+        if (R == 0) {
+            return smallNumber;
+        } else {
+            // 나머지가 0이 아닌경우 재귀형태로 자기 자신 호출
+            // 파라미터로 작은 수, 나머지를 넘김
+            return euclidean(smallNumber, R);
+        }
     }
+
 }
