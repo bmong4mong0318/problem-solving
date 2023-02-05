@@ -28,5 +28,15 @@ long A = Long.parseLong(st.nextToken());
 int B = Integer.parseInteger(st.nextToken());
 ```
 
+```java
+loop:
+for (int i = 0; i < N; i++) {
+    for (int j = 0; j < M; j++) {
+        if (isInteger(j))
+            break loop; // loop으로 이동, goto와 비슷한 기능
+    }
+}
+```
+
 - 모든 양의 정수는 소인수 분해를 갖는다.
 - 골드바흐의 추측: 2보다 큰 모든 짝수는 2개의 소수합으로 표현할 수 있다.
