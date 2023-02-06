@@ -107,6 +107,12 @@ public class template {
                 isPrime[j] = false;
             }
         }
+        // 소수 남김없이 다 모으기
+        for (int i = 2; i <= LIMIT; i++) {
+            if (isPrime[i]) {
+                prime.add(i);
+            }
+        }
         return prime;
     }
 
