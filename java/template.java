@@ -90,6 +90,7 @@ public class template {
     private static ArrayList<Integer> getPrimeNumbers(int LIMIT) {
         ArrayList<Integer> prime = new ArrayList<>();
         boolean[] isPrime = new boolean[LIMIT + 1]; // int 범위 벗어나면 못함
+        // 10 억 개의 배열을 만드는건 안된다. -> OutOfMemoryError: Java heap space
 
         //처음에 모두 소수라고 가정
         Arrays.fill(isPrime, true);
