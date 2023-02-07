@@ -138,4 +138,23 @@ public class template {
         }
     }
 
+    // 이분 탐색은 배열이 정렬되어 있어야 사용할 수 있다
+    private static boolean binarySearch(int num, int[] arr) {
+        int n = 1; // 에러 방지용
+        int start = 0;
+        int end = n - 1;
+        int mid;
+
+        while (start <= end){
+            mid = (start + end) / 2;
+            // 찾으면 바로 리턴
+            if (arr[mid] == num) return true;
+            // 찾으려는 값이 중간보다 크면 스타트를 왼쪽으로 땡겨준다
+            else if (arr[mid] < num) start = mid + 1;
+            // 찾으려는 값이 중간보다 작으면 엔드를 오른쪽으로 땡겨준다
+            else if (arr[mid] > num) end = mid - 1;
+        }
+        return false;
+    }
+
 }
