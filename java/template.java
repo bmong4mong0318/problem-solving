@@ -24,8 +24,8 @@ public class template {
 
     static List<Integer>[] adj; // 인접리스트
 
-    static int[] dx = {1, 0, -1, 0}; // DFS, BFS
-    static int[] dy = {0, 1, 0, -1};
+    static int[] dx = {1, 0, -1, 0, 0}; // DFS, BFS
+    static int[] dy = {0, 1, 0, -1, 0}; // 맨끝에 0은 자기 자신 탐색
     static int[][] map; // 2차원 지도
     static int row = map.length; // row의 갯수
     static int col = map[0].length; // 각 row가 가지고 있는 column 갯수
@@ -79,7 +79,7 @@ public class template {
             int x = cur[0];
             int y = cur[1];
 
-            for (int i = 0; i < 4; i++) {
+            for (int i = 0; i < 5; i++) {
                 int nx = x + dx[i];
                 int ny = y + dy[i];
             }
