@@ -22,7 +22,10 @@ public class template {
         }
     }
 
-    static List<Integer>[] adj; // 인접리스트
+    // 인접리스트
+    static ArrayList<ArrayList<Integer>> adjList = new ArrayList<>();
+    // 인접행렬
+    static int[][] adjArray;
 
     static int[] dx = {1, 0, -1, 0, 0}; // DFS, BFS
     static int[] dy = {0, 1, 0, -1, 0}; // 맨끝에 0은 자기 자신 탐색
