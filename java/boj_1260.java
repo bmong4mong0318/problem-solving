@@ -65,7 +65,7 @@ public class boj_1260 {
             System.out.print(x + " ");
 
             for (int i = 1; i < adj.length; i++){
-                if (!isVisited[x] && adj[x][i] == 1){
+                if (!isVisited[i] && adj[x][i] == 1){
                     q.offer(i);
                     isVisited[i] = true;
                 }
