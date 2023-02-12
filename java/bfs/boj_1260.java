@@ -1,3 +1,5 @@
+package bfs;
+
 import java.io.*;
 import java.util.*;
 
@@ -23,7 +25,7 @@ public class boj_1260 {
         // 시작 정점
         startVertex = Integer.parseInt(st.nextToken());
 
-        adj = new int[vCnt + 1][vCnt + 1]; // 여기 싸이즈?
+        adj = new int[vCnt + 1][vCnt + 1];
 
         for(int i = 0; i < eCnt; i++){
             st = new StringTokenizer(br.readLine());
