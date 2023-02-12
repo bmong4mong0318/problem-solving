@@ -42,3 +42,19 @@ for (int i = 0; i < N; i++) {
 - 모든 양의 정수는 소인수 분해를 갖는다.
 - 두 수 a, b의 최소공배수 = a * b / (두 수의 최대공약수)
 - 골드바흐의 추측: 2보다 큰 모든 짝수는 2개의 소수합으로 표현할 수 있다.
+
+```java
+while (true){
+
+    st = new StringTokenizer(br.readLine());
+    int a = Integer.parseInt(st.nextToken());
+    int b = Integer.parseInt(st.nextToken());
+    int c = Integer.parseInt(st.nextToken());
+    if (a == -1 && b == -1 && c == -1) break;
+    
+    // 출력을 여러번 해야하는 경우 성능이 떨어지므로 `StringBuilder`로 출력을 모아준뒤
+    sb.append("w(" + a + ", " + b + ", " + c + ") = ").append(w(a, b, c)).append('\n');
+}
+// 실제 출력은 한번만 하도록 한다.
+System.out.println(sb);
+```
