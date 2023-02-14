@@ -15,7 +15,6 @@ public class boj_13301 {
 
         dp[0] = 1;
         dp[1] = 1;
-//        dp[2] = 1; //이거 어디가 벗어나는거지?
         for (int i = 2; i <= N; i++){
             dp[i] = dp[i-1] + dp[i-2];
         }
