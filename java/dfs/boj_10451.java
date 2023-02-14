@@ -1,4 +1,4 @@
-package back_tracking;
+package dfs;
 
 import java.io.*;
 import java.util.*;
