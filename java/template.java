@@ -29,6 +29,8 @@ public class template {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
 
+    // int보다 long이 안전하다.
+    static long[][] dp;
 
     // 빠른 출력
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
