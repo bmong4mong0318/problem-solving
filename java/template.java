@@ -27,13 +27,15 @@ public class template {
 
     // 빠른 입력
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static StringTokenizer st;
+
+
     // 빠른 출력
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
     // 버퍼를 잡아 놓았기 때문에 bw.flush(); 를 반드시 호출 해주어야 한다.
     // bw.write(String.valueOf(result)); // 종료시마다 결과 값 버퍼에 저장
     // bw.flush(); // 출력
-
-    static StringTokenizer st;
+    static StringBuilder sb = new StringBuilder(); // 모아서 한번에 출력
 
     public static void main(String[] args) throws IOException {
 

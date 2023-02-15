@@ -60,3 +60,39 @@ while (true){
 // 실제 출력은 한번만 하도록 한다.
 System.out.println(sb);
 ```
+
+```java
+// 11110000
+// 11110000
+// 00011100
+// 00011100
+// 11110000
+// 11110000
+// 11110011
+// 11110011
+
+// 숫자 사이에 공백이 없는 경우 
+for (int i = 0; i < N; i++){
+    String str = br.readLine();
+    for (int j = 0; j < N; j++){
+        map[i][j] = str.charAt(j) - '0';
+    }
+}
+
+// 1 1 1 1 0 0 0 0
+// 1 1 1 1 0 0 0 0
+// 0 0 0 1 1 1 0 0
+// 0 0 0 1 1 1 0 0
+// 1 1 1 1 0 0 0 0
+// 1 1 1 1 0 0 0 0
+// 1 1 1 1 0 0 1 1
+// 1 1 1 1 0 0 1 1
+
+// 숫자 사이에 공백이 있는 경우
+for (int i = 0; i < N; i++){
+    st = new StringTokenizer(br.readLine());
+    for (int j = 0; j < N; j++){
+        map[i][j] = Integer.parseInt(st.nextToken());
+    }
+}
+```
