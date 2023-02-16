@@ -13,7 +13,7 @@ public class boj_2839 {
         Arrays.fill(dp, 10001);
 
         int[] arr = new int[]{3, 5};
-        dp[0] = 1;
+        dp[0] = 0;
         for (int i = 0; i < 2; i++) {
             for (int j = 1; j <= N; j++) {
                 if (j >= arr[i])
@@ -23,6 +23,6 @@ public class boj_2839 {
         if (dp[N] == 10001)
             System.out.println(-1);
         else
-            System.out.println(dp[N] - 1);
+            System.out.println(dp[N]);
     }
 }
