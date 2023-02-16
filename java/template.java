@@ -25,12 +25,12 @@ public class template {
     static int row = map.length; // row의 갯수
     static int col = map[0].length; // 각 row가 가지고 있는 column 갯수
 
+    // int보다 long이 안전하다.
+    static long[][] dp;
+
     // 빠른 입력
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
-
-    // int보다 long이 안전하다.
-    static long[][] dp;
 
     // 빠른 출력
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
