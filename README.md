@@ -13,6 +13,10 @@
 - max 값으로 갱신할 때는 Integer.MIN_VALUE, min 값으로 갱신할 때는 INTEGER.MAX_VALUE
   - 이때 각 값의 오버플로우 주의
   - 최대 최소 갱신 문제는 어려우면 for문을 거꾸로 돌려보자.
+- flag 세우는 건 최대한 지양하자. 예외사항에 너무 위험하다.
+- BFS, DFS 문제시에
+  - 구역개수: 탐색 끝날때마다 return 1 해서 cnt에 더해주는 식으로
+  - 단계별개수: 큐에 넣을 때마다 isVisited++ 해주는 식으로
 
 
 ```java
