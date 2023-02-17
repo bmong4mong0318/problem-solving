@@ -1,3 +1,5 @@
+package bfs;
+
 import java.io.*;
 import java.util.*;
 
