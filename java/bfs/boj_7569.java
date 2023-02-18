@@ -51,6 +51,7 @@ public class boj_7569 {
 
                 if (box[nz][nx][ny] == 0){
                     q.offer(new int[]{nz, nx, ny});
+                    // 전 단계에서의 값 + 1
                     box[nz][nx][ny] = box[z][x][y] + 1;
                 }
             }

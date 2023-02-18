@@ -29,12 +29,13 @@ public class boj_1182 {
     }
 
     public static void func(int cur, int tot){
+        // 단계가 끝났을때의 합이 S이면 카운트
         if (cur == N){
             if (tot == S) cnt++;
             return;
         }
-        func(cur + 1, tot);
-        func(cur + 1, tot + num[cur]);
+        func(cur + 1, tot); // cur 위치의 수를 안더하고 다음 단계로
+        func(cur + 1, tot + num[cur]); // 더하고 다음 단계로
     }
 
 }

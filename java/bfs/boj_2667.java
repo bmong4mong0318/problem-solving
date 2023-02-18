@@ -43,7 +43,7 @@ public class boj_2667 {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (map[i][j] == 1 && !isVisited[i][j])
-                    bfs(i, j);
+                    total += bfs(i, j);
             }
         }
         System.out.println(total);
@@ -53,7 +53,7 @@ public class boj_2667 {
         }
     }
 
-    private static void bfs(int a, int b) {
+    private static int bfs(int a, int b) {
         Queue<int[]> q = new LinkedList<>();
         q.add(new int[]{a, b});
         int cnt = 0;
@@ -77,7 +77,7 @@ public class boj_2667 {
                 }
             }
         }
-        total += 1;
         houseCount.add(cnt);
+        return 1;
     }
 }
