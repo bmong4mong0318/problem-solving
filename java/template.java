@@ -47,8 +47,8 @@ public class template {
     public static void main(String[] args) throws IOException {
 
         // 특정 범위 내 소수 구하기
-        int LIMIT = 0;
-        ArrayList<Integer> primeNumbers = getPrimeNumbers(LIMIT);
+        int LIMIT = 4_000_000;
+        List<Integer> primeNumbers = getPrimeNumbers(LIMIT);
 
         // 역순 정렬
         primeNumbers.sort(Collections.reverseOrder());
@@ -113,33 +113,30 @@ public class template {
 
     // 특정 범위 내의 소수 구하기 - 에라토스테네스의 체 활용
     private static ArrayList<Integer> getPrimeNumbers(int LIMIT) {
-        ArrayList<Integer> prime = new ArrayList<>();
-        boolean[] isPrime = new boolean[LIMIT + 1]; // int 범위 벗어나면 못함
+        ArrayList<Integer> primeNumbers = new ArrayList<>();
+        boolean[] prime = new boolean[LIMIT + 1]; // int 범위 벗어나면 못함
         // 10 억 개의 배열을 만드는건 안된다. -> OutOfMemoryError: Java heap space
 
-        //처음에 모두 소수라고 가정
-        Arrays.fill(isPrime, true);
-        //2 부터 sqrt(n) 까지
+        // 소수가 아니면 true
+        prime[0] = prime[1] = true;
+        // 2 부터 sqrt(n) 까지
         for (int i = 2; i * i <= LIMIT; i++) {
-            // 이미 지워진 수는 무시
-            if (!isPrime[i]) {
-                continue;
+            // 소수이면
+            if (!prime[i]) {
+                for (int j = i * i; j <= LIMIT; j += i) {
+                    // 그 배수들은 모두 제외
+                    prime[j] = true;
+                }
             }
+        }
 
-            //소수만 모으고
-            prime.add(i);
-            for (int j = i * i; j <= LIMIT; j += i) {
-                // 그 배수들은 모두 제외
-                isPrime[j] = false;
-            }
-        }
         // 소수 남김없이 다 모으기
-        for (int i = 2; i <= LIMIT; i++) {
-            if (isPrime[i]) {
-                prime.add(i);
+        for (int i = 0; i <= LIMIT; i++) {
+            if (!prime[i]) {
+                primeNumbers.add(i);
             }
         }
-        return prime;
+        return primeNumbers;
     }
 
     /**
