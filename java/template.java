@@ -19,6 +19,8 @@ public class template {
     static ArrayList<ArrayList<Integer>> adjList = new ArrayList<>();
     // 인접행렬
     static int[][] adjArray;
+    // 부모행렬
+    static int[] parents;
 
     static int[] dx = {1, 0, -1, 0, 0}; // DFS, BFS
     static int[] dy = {0, 1, 0, -1, 0}; // 맨끝에 0은 자기 자신 탐색
@@ -26,12 +28,14 @@ public class template {
     static int row = map.length; // row의 갯수
     static int col = map[0].length; // 각 row가 가지고 있는 column 갯수
 
+
     // int보다 long이 안전하다.
     static long[][] dp;
 
     // 빠른 입력
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
+    static int N,M;
 
     // 빠른 출력
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -63,6 +67,12 @@ public class template {
         // 입력
         input();
 
+        // 부모 행렬 초기화
+        parents = new int[N];
+        for (int i = 0; i < N; i++){
+            parents[i] = i;
+        }
+
         // bfs form
         bfs();
 
@@ -72,8 +82,8 @@ public class template {
 
         st = new StringTokenizer(br.readLine());
 
-        int N = Integer.parseInt(st.nextToken());
-        int M = Integer.parseInt(st.nextToken());
+        N = Integer.parseInt(st.nextToken());
+        M = Integer.parseInt(st.nextToken());
 
         map = new int[N][M];
         for (int i = 0; i < N; i++) {
@@ -170,6 +180,32 @@ public class template {
             else if (arr[mid] > num) end = mid - 1;
         }
         return false;
+    }
+
+    // 사이클 판별 + 노드 연결 메서드
+    private static boolean union(int a, int b) {
+        int aRoot = find(a); // a의 root 노드
+        int bRoot = find(b); // b의 root 노드
+        // a와 b의 root 노드가 같다면 사이클 형성
+        if (aRoot == bRoot) return true;
+        // a와 b의 root 노드가 다른 경우
+        else {
+            if (aRoot < bRoot) {
+                parents[bRoot] = aRoot;
+            } else {
+                parents[aRoot] = bRoot;
+            }
+            return false;
+        }
+    }
+
+    // 루트 반환 메서드
+    private static int find(int n) {
+        // 부모가 자신이면 루트라는 뜻
+        if(n == parents[n]) return n;
+        // 루트가 아니면 n의 부모를 찾아서 바로 parents[n]에 대입
+        // 경로 압축 기법을 통해서 루트노드에 빠르게 접근
+        return parents[n] = find(parents[n]);
     }
 
 }
