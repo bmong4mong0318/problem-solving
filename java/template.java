@@ -46,11 +46,26 @@ public class template {
         int LIMIT = 0;
         ArrayList<Integer> primeNumbers = getPrimeNumbers(LIMIT);
 
+        // 역순 정렬
+        primeNumbers.sort(Collections.reverseOrder());
+
+        // 임의 정렬
+        int[][] line = new int[10][10];
+        Arrays.sort(line, new Comparator<int[]>() {
+            @Override
+            // o1 < o2 크기가 되도록 자동으로 지정됨
+            public int compare(int[] o1, int[] o2){
+                // 첫번째 인자가 두번째 인자보다 작게끔 하려면 음수리턴
+                return o1[0] - o2[0];
+            }
+        });
+
         // 입력
         input();
 
         // bfs form
         bfs();
+
     }
 
     private static void input() throws IOException {
