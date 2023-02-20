@@ -28,7 +28,6 @@ public class template {
     static int row = map.length; // row의 갯수
     static int col = map[0].length; // 각 row가 가지고 있는 column 갯수
 
-
     // int보다 long이 안전하다.
     static long[][] dp;
 
