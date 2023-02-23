@@ -20,7 +20,7 @@ public class boj_1744 {
         }
         Collections.sort(ans);
 
-        //0 갯수 만큼 절댒값이 작은 음수제거
+        // 0 갯수 만큼 절댒값이 작은 음수제거
         if (cnt != 0) {
             int k = 0;
             while (ans.get(k) < 0)

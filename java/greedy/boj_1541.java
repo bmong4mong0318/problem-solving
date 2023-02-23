@@ -26,10 +26,10 @@ public class boj_1541 {
                 tmp += Integer.parseInt(addition[j]);
             }
 
-            // 첫 번째토큰인 경우 tmp값이 첫 번째 수가 됨
+            // 첫번째 수는 양수
             if (sum == Integer.MAX_VALUE) {
                 sum = tmp;
-            } else {
+            } else { // 나머지 수들은 빼주기
                 sum -= tmp;
             }
         }
