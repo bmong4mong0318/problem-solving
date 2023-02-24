@@ -56,10 +56,12 @@ public class boj_2206 {
                     continue;
                 }
 
+                // 다음 칸에 벽이 있을 때
                 if (map[nx][ny] == '1') {
+                    // 벽을 무순적이 없고, 해당벽을 방문한 적이 없는지
                     if (cur[2] == 0 && isVisited[nx][ny][1] == 0) {
                         isVisited[nx][ny][cur[2]] = 1;
-                        dist[nx][ny] = dist[x][y] + 1;
+                        dist[nx][ny] = dist[x][y] + 1; // 거리 측정
                         q.offer(new int[]{nx, ny, 1});
                     }
                 } else {
