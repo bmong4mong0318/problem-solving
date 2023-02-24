@@ -15,8 +15,18 @@ public class template {
         }
     }
 
+    static class Edge {
+        int to; // 목적지
+        int weight; // 가중치
+
+        Edge(int to, int weight) {
+            this.to = to;
+            this.weight = weight;
+        }
+    }
+
     // 인접리스트
-    static ArrayList<ArrayList<Integer>> adjList = new ArrayList<>();
+    static ArrayList<Edge>[] adjList;
     // 인접행렬
     static int[][] adjArray;
     // 부모행렬
@@ -70,6 +80,12 @@ public class template {
         parents = new int[N];
         for (int i = 0; i < N; i++){
             parents[i] = i;
+        }
+
+        // 가중치를 둔 인접 리스트
+        adjList = new ArrayList[N + 1];
+        for(int i = 1; i<= N; i++){
+            adjList[i] = new ArrayList<>();
         }
 
         // bfs form
