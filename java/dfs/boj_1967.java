@@ -27,7 +27,6 @@ public class boj_1967 {
     public static void main(String[] args) throws IOException {
         int N = Integer.parseInt(br.readLine());
 
-
         // 가중치를 둔 인접 리스트
         adjList = new ArrayList[N + 1];
         for (int i = 1; i <= N; i++) {
