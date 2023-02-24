@@ -5,7 +5,7 @@ import java.math.*;
 
 public class template {
 
-    public static class Pair { // pair
+    public static class Pair {
 
         int x, y;
 
@@ -34,6 +34,7 @@ public class template {
 
     static int[] dx = {1, 0, -1, 0, 0}; // DFS, BFS
     static int[] dy = {0, 1, 0, -1, 0}; // 맨끝에 0은 자기 자신 탐색
+
     static int[][] map; // 2차원 지도
     static int row = map.length; // row의 갯수
     static int col = map[0].length; // 각 row가 가지고 있는 column 갯수
@@ -76,16 +77,16 @@ public class template {
         // 입력
         input();
 
-        // 부모 행렬 초기화
-        parents = new int[N];
-        for (int i = 0; i < N; i++){
-            parents[i] = i;
-        }
-
         // 가중치를 둔 인접 리스트
         adjList = new ArrayList[N + 1];
         for(int i = 1; i<= N; i++){
             adjList[i] = new ArrayList<>();
+        }
+
+        // 부모 행렬 초기화
+        parents = new int[N];
+        for (int i = 0; i < N; i++){
+            parents[i] = i;
         }
 
         // bfs form
