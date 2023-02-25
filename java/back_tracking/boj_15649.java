@@ -17,10 +17,10 @@ public class boj_15649 {
         st = new StringTokenizer(br.readLine());
         n = Integer.parseInt(st.nextToken());
         m = Integer.parseInt(st.nextToken());
-        func(0);
+        solution(0);
     }
 
-    private static void func(int k) {
+    private static void solution(int k) {
         if (k == m){
             for (int i = 0; i < m; i++) {
                 System.out.print(arr[i] + " ");
@@ -32,7 +32,7 @@ public class boj_15649 {
             if (!isUsed[i]){
                 arr[k] = i;
                 isUsed[i] = true;
-                func(k+1);
+                solution(k+1);
                 isUsed[i] = false;
             }
         }
