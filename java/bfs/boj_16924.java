@@ -31,6 +31,9 @@ public class boj_16924 {
 
 
 
+
+
+
         Queue<int[]> Q = new LinkedList<>();
         // isVisited[0][0] = true;
         // 모든점 돌면서
