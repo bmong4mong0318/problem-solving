@@ -1,0 +1,14 @@
+SELECT HISTORY_ID, CAR_ID,
+DATE_FORMAT(START_DATE, '%Y-%m-%d') as START_DATE,
+DATE_FORMAT(END_DATE, '%Y-%m-%d') as END_DATE,
+(
+    CASE
+        # 날짜 차이는 + 1 해주어야 한다
+        WHEN DATEDIFF(END_DATE, START_DATE) + 1>= 30
+        THEN '장기 대여'
+        ELSE '단기 대여'
+    END
+) as RENT_TYPE
+from CAR_RENTAL_COMPANY_RENTAL_HISTORY
+WHERE START_DATE LIKE '2022-09%' 
+ORDER BY 1 DESC;
