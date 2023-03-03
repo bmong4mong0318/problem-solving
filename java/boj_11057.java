@@ -21,6 +21,8 @@ public class boj_11057 {
             }
         }
 
+
+
         int sum = 0;
         for (int i = 0; i < 10; i++){
             sum += dp[n][i];
