@@ -57,7 +57,7 @@ public class boj_1967 {
             max = len;
         }
 
-        // 인접한 노드들을 전부 돌면서
+        // 간선들을 전부 돌면서
         for (Edge e : adjList[x]){
             int i = e.to;
             int weight = e.weight;
