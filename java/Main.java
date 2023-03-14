@@ -1,23 +1,22 @@
-import java.util.*;
+
 import java.io.*;
+import java.util.*;
 import java.math.*;
 
 public class Main {
+
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
     static StringTokenizer st;
-    static String a, b;
+    static int N;
+    static String str;
 
     public static void main(String[] args) throws IOException {
-        Scanner in = new Scanner(System.in);
 
-        a = in.next();
-        b = in.next();
-
-        if (a.length() >= b.length()) {
-            System.out.println("go");
-        } else {
-            System.out.println("no");
-        }
+        System.out.println("#  # #### #### #  #\n"
+            + "#### #  # #  # # #\n"
+            + "#### #  # #  # # #\n"
+            + "#  # #### #### #  #");
 
     }
 }
