@@ -12,16 +12,11 @@ public class Main {
     static String str;
 
     public static void main(String[] args) throws IOException {
-        st = new StringTokenizer(br.readLine());
-        int n = Integer.parseInt(st.nextToken());
-        int m = Integer.parseInt(st.nextToken());
+        Scanner in = new Scanner(System.in);
 
-        if (m == 1 || !(n >= 12 && n <= 16)) {
-            System.out.println(280);
-        } else if ((n >= 12 && n <= 16) && m == 0) {
-            System.out.println(320);
-        }
+        N = in.nextBigInteger();
+        M = in.nextBigInteger();
 
-
+        System.out.println(N.add(M));
     }
 }
