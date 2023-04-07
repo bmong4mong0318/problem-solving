@@ -1,22 +1,27 @@
-
 import java.io.*;
 import java.util.*;
 import java.math.*;
 
-public class Main {
+import static java.lang.System.exit;
+
+class Main {
 
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
     static StringTokenizer st;
-    static BigInteger N, M;
+    static StringBuilder sb = new StringBuilder();
     static String str;
+    static BigInteger big_a, big_b;
 
     public static void main(String[] args) throws IOException {
         Scanner in = new Scanner(System.in);
 
-        N = in.nextBigInteger();
-        M = in.nextBigInteger();
+        long a = in.nextLong();
+        long b = in.nextLong();
 
-        System.out.println(N.add(M));
+        if (a % 2 == 0 || b % 2 == 0) {
+            System.out.println(0);
+        } else {
+            System.out.println(Math.min(a, b));
+        }
     }
 }
