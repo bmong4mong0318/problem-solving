@@ -1,28 +1,41 @@
-import java.util.*;
 import java.io.*;
+import java.util.*;
+import java.math.*;
 
-public class Main {
-    private static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-    public static void main (String args[]) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int N = Integer.parseInt(br.readLine());
-        String str = br.readLine();
-        String temp = "";
+import static java.lang.System.exit;
+
+class Main {
+
+    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static StringTokenizer st;
+    static StringBuilder sb = new StringBuilder();
+    static String str;
+    static BigInteger big_a, big_b;
+    static int tmp;
+
+    public static void main(String[] args) throws IOException {
+        st = new StringTokenizer(br.readLine());
+        int N = Integer.parseInt(st.nextToken());
+
+        st = new StringTokenizer(br.readLine());
+        str = st.nextToken();
+
         long sum = 0;
-        for (int i = 0; i < N; i++) {
-            if (str.charAt(i) <= '9' && str.charAt(i) >= '0') temp += str.charAt(i);
-            else {
-                if (temp.length() > 0) {
-                    sum += Long.parseLong(temp);
-                    temp = "";
+        for (int i = 0; i < str.length(); i++) {
+            if (Character.isDigit(str.charAt(i))) {
+                int cnt = 0;
+                StringBuilder make_num = new StringBuilder();
+                // 숫자 아닐때까지
+                while (i < str.length()
+                        && Character.isDigit(str.charAt(i))) {
+                    make_num.append((str.charAt(i)));
+                    i++;
+                    cnt++;
                 }
+                // sum 에 더하기
+                sum += Integer.parseInt(make_num.toString());
             }
         }
-        if (temp.length() > 0) {
-            sum += Long.parseLong(temp);
-            temp = "";
-        }
-        bw.write(String.valueOf(sum));
-        bw.flush();
+        System.out.println(sum);
     }
 }
