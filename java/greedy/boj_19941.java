@@ -1,9 +1,10 @@
+package greedy;
+
 import java.io.*;
 import java.util.*;
 import java.math.*;
-import java.util.stream.Stream;
 
-class Main {
+class boj_19941 {
 
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
