@@ -1,8 +1,10 @@
+package two_pointer;
+
 import java.io.*;
 import java.util.*;
 import java.math.*;
 
-class Main {
+class boj_2470 {
 
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
